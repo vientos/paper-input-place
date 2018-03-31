@@ -14,7 +14,7 @@ This release is a Polymer 2.0 hybrid element so it will work in 1.x or 2.0 Polym
   Basic use:
 
 ```html
-<paper-input-place api-key="your google api key" value="{{tourstop.place}}" 
+<paper-input-place api-key="your google api key" value="{{tourstop.place}}"
   label="Pick a place" hide-error></paper-input-place>
 ```
 The `value` property is an object:
@@ -147,13 +147,13 @@ See README.MD for more use examples, styling, api and a link to a live demo page
       }
     </style>
     <template is="dom-if" if="[[apiKey]]" restamp="true">
-      <!-- 
+      <!--
         NOTE: the GoogleWebComponents collection has not been updated
         to support Polymer 2.0 as of 5/31/2017.  There is no estimated
         date at this time.
 
         For that reason this control is using iron-jsonp-library to load
-        the google maps api instead of <google-maps-api>.  The url string 
+        the google maps api instead of <google-maps-api>.  The url string
         is the same as what would have been issued by the <google-maps-api> so
         even if that control is used elsewhere in your 1.x app, the api will
         not be loaded twice.
@@ -251,9 +251,9 @@ See README.MD for more use examples, styling, api and a link to a live demo page
          *    east: number,  // East longitude in degrees.
          *    west: number,  // West longitude in degrees.
          *    north: number, // North latitude in degrees.
-         *    south: number, // South latitude in degrees.  
+         *    south: number, // South latitude in degrees.
          * }
-         * 
+         *
          */
         searchBounds: {
           type: Object
@@ -261,11 +261,11 @@ See README.MD for more use examples, styling, api and a link to a live demo page
 
         /**
          * bias search results by type
-         * permitted values: 
+         * permitted values:
          *   address
          *   geocode
          *   establishment
-         *   (regions) 
+         *   (regions)
          *   (cities)
          */
         searchType: {
@@ -419,7 +419,7 @@ See README.MD for more use examples, styling, api and a link to a live demo page
           value: "",
           observer: '_svalChanged'
         },
-        /** 
+        /**
          * @private
          * The url for the google maps api
          */
@@ -673,6 +673,12 @@ See README.MD for more use examples, styling, api and a link to a live demo page
           latLng: {
             lat: pl.geometry.location.lat(),
             lng: pl.geometry.location.lng()
+          },
+          bbox: {
+            north: pl.geometry.viewport.f.f,
+            east: pl.geometry.viewport.b.f,
+            south: pl.geometry.viewport.f.b,
+            west: pl.geometry.viewport.b.b
           },
           basic: {
             name: pl.name || "",
