@@ -682,10 +682,10 @@ See README.MD for more use examples, styling, api and a link to a live demo page
             lng: pl.geometry.location.lng()
           },
           bbox: {
-            north: pl.geometry.viewport.f.f,
-            east: pl.geometry.viewport.b.f,
-            south: pl.geometry.viewport.f.b,
-            west: pl.geometry.viewport.b.b
+            north: pl.geometry.viewport.f ? pl.geometry.viewport.f.f : pl.geometry.viewport.j.j ,
+            east: pl.geometry.viewport.b ? pl.geometry.viewport.b.f : pl.geometry.viewport.l.j,
+            south: pl.geometry.viewport.f ? pl.geometry.viewport.f.b : pl.geometry.viewport.j.l,
+            west: pl.geometry.viewport.b ? pl.geometry.viewport.b.b : pl.geometry.viewport.l.l
           },
           basic: {
             name: pl.name || "",
